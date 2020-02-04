@@ -1,0 +1,17 @@
+<div class="container">
+  <p>noticias works!</p>
+
+  <div *ngIf="noticias?.length > 0; else noNoticias">
+    <div>
+      <ul *ngFor="let noticia of noticias" class="collection">
+        <li class="collection-item">
+            {{noticia.author}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <ng-template #noNoticias>
+    <hr>
+    <h5>No existen noticias</h5>
+  </ng-template>
+</div>
