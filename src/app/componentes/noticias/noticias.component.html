@@ -1,17 +1,18 @@
-<div class="container">
-  <p>noticias works!</p>
+  <h2>Las últimas noticias sobre el mundo del Pádel</h2>
 
   <div *ngIf="noticias?.length > 0; else noNoticias">
-    <div>
-      <ul *ngFor="let noticia of noticias" class="collection">
-        <li class="collection-item">
-            {{noticia.author}}
-        </li>
-      </ul>
+    <div class="row">
+      <div *ngFor="let noticia of noticias" class="col-md-6 col-lg-4">
+        <div class="card">
+          <img class="card-img-top" src="{{noticia.urlToImage}}" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">{{noticia.description}}</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <ng-template #noNoticias>
     <hr>
     <h5>No existen noticias</h5>
   </ng-template>
-</div>
