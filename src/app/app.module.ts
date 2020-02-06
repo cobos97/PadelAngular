@@ -5,25 +5,39 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoticiasComponent } from './componentes/noticias/noticias.component';
 import { PrincipalComponent } from './componentes/principal/principal.component';
-import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
 
-import * as $ from 'jquery';
-import { NoticiasService } from './servicios/noticias.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './componentes/navbar/navbar.component';
+import { RegistroComponent } from './componentes/login/registro/registro.component';
+
+import { environment } from '../environments/environment';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { LoginComponent } from './componentes/login/login/login.component';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestoreModule } from "@angular/fire/firestore";
 
 @NgModule({
   declarations: [
     AppComponent,
     NoticiasComponent,
     PrincipalComponent,
-    CabeceraComponent
+    NavbarComponent,
+    RegistroComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
-  providers: [NoticiasService],
+  providers: [AngularFireAuth],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

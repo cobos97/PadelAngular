@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: "AIzaSyBQhRktTApZJ3kk5kUqJfMj0NGVp-imAnc",
+    authDomain: "padel-bae16.firebaseapp.com",
+    databaseURL: "https://padel-bae16.firebaseio.com",
+    projectId: "padel-bae16",
+    storageBucket: "padel-bae16.appspot.com",
+    messagingSenderId: "317675997368",
+    appId: "1:317675997368:web:479c4e3c6069486c014c4d"
+  }
 };
 
 /*
