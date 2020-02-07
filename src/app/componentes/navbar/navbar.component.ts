@@ -10,6 +10,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class NavbarComponent implements OnInit {
 
   public isLogged: boolean = false;
+  public emailUser: string = "";
 
   constructor(private authService: AuthServiceService, private afsAuth: AngularFireAuth) { }
 
@@ -22,6 +23,8 @@ export class NavbarComponent implements OnInit {
       if (auth) {
         console.log('user logged');
         this.isLogged = true;
+        console.log(auth.email);
+        this.emailUser = auth.email;
       } else {
         console.log('NOT user logged');
         this.isLogged = false;
