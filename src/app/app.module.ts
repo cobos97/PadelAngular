@@ -12,12 +12,15 @@ import { RegistroComponent } from './componentes/login/registro/registro.compone
 
 import { environment } from '../environments/environment';
 
+import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { LoginComponent } from './componentes/login/login/login.component';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -29,13 +32,15 @@ import { AngularFirestoreModule } from "@angular/fire/firestore";
     LoginComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireStorageModule
   ],
   providers: [AngularFireAuth],
   bootstrap: [AppComponent]
