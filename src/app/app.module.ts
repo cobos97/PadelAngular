@@ -21,6 +21,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { MensajesComponent } from './componentes/mensajes/mensajes.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
     PrincipalComponent,
     NavbarComponent,
     RegistroComponent,
-    LoginComponent
+    LoginComponent,
+    MensajesComponent
   ],
   imports: [
     FormsModule,

@@ -1,0 +1,8 @@
+<p>mensajes works!</p>
+
+<form class="form-inline" (ngSubmit)="onGuardarMensaje(formNew)" #formNew="ngForm">
+  <div class="form-group mb-2 w-75">
+    <input [(ngModel)]="mensaje.contenido" #contenido="ngModel" type="text" class="form-control w-100" id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí">
+  </div>
+  <input type="submit" class="btn btn-primary mb-2 ml-5" name="enviar" value="Enviar">
+</form>

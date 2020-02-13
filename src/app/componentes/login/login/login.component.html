@@ -1,5 +1,5 @@
-<div class="card_register">
-  <div class="card">
+<div class="row card_register justify-content-center">
+  <div class="col-lg-6 card">
     <div class="card-body text-center">
 
       <form #formLogin="ngForm" (submit)="onLogin()">
@@ -14,6 +14,7 @@
             placeholder="Contraseña" required>
         </div>
         <hr>
+        <br>
         <button type="submit" class="btn btn-lg btn-primary btn-block">Login</button>
         <div class="form-group">
           <a routerLink="/registro" class="form-control login-user">¿Eres nuevo?</a>

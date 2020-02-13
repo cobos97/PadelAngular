@@ -1,3 +1,4 @@
+import { MensajesComponent } from './componentes/mensajes/mensajes.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NoticiasComponent } from './componentes/noticias/noticias.component';
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path: "noticias", component: NoticiasComponent},
   {path: "principal", component: PrincipalComponent},
   {path: "registro", component: RegistroComponent},
+  {path: "mensajes", component: MensajesComponent},
   {path: "login", component: LoginComponent},
   {path: "**", component: PrincipalComponent}//TODO: Crear y cambiar por pagina 404
 ];
