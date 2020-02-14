@@ -13,10 +13,14 @@ export class MensajesComponent implements OnInit {
   mensaje: MensajeInterface = {
     usuario: '',
     contenido: '',
-    fecha: ''
+    fecha: '',
+    lugar: ''
   }
 
   mensajes: MensajeInterface[];
+  mensajesMoriles: MensajeInterface[];
+  mensajesLucena: MensajeInterface[];
+  mensajesMonturque: MensajeInterface[];
 
   constructor(private mensajeService: MensajesService, private authService: AuthServiceService) { }
 
@@ -24,27 +28,39 @@ export class MensajesComponent implements OnInit {
     this.mensajeService.getMensajes().subscribe(mensajes => {
       this.mensajes = mensajes;
       console.log(mensajes);
-  });
+    });
+    this.mensajeService.getMensajesMoriles().subscribe(mensajes => {
+      this.mensajesMoriles = mensajes;
+      console.log(mensajes);
+    });
+    this.mensajeService.getMensajesLucena().subscribe(mensajes => {
+      this.mensajesLucena = mensajes;
+      console.log(mensajes);
+    });
+    this.mensajeService.getMensajesMonturque().subscribe(mensajes => {
+      this.mensajesMonturque = mensajes;
+      console.log(mensajes);
+    });
   }
 
-  onGuardarMensaje(myForm: NgForm){
-    if(myForm.valid === true){
-       let currentUser = "";
-       this.authService.isAuth().subscribe(auth => {
-          currentUser = auth.email;
+  onGuardarMensaje(myForm: NgForm) {
+    if (myForm.valid === true) {
+      let currentUser = "";
+      this.authService.isAuth().subscribe(auth => {
+        currentUser = auth.email;
 
-          this.mensaje.usuario = currentUser;
-          const fechaNow = Date.now();
-          this.mensaje.fecha = fechaNow;
-          //console.log(this.mensaje);
-          this.mensajeService.addMensaje(this.mensaje);
-          myForm.resetForm();
+        this.mensaje.usuario = currentUser;
+        const fechaNow = Date.now();
+        this.mensaje.fecha = fechaNow;
+        //console.log(this.mensaje);
+        this.mensajeService.addMensaje(this.mensaje);
+        myForm.resetForm();
 
       });
-    }else{
+    } else {
       console.log("Algo va mal");
     }
-    
+
   }
 
 }

@@ -10,6 +10,12 @@ import { map } from 'rxjs/operators';
 export class MensajesService {
   mensajesCollection: AngularFirestoreCollection<MensajeInterface>;
   mensajes: Observable<MensajeInterface[]>;
+  mensajesCollectionMoriles: AngularFirestoreCollection<MensajeInterface>;
+  mensajesMoriles: Observable<MensajeInterface[]>;
+  mensajesCollectionLucena: AngularFirestoreCollection<MensajeInterface>;
+  mensajesLucena: Observable<MensajeInterface[]>;
+  mensajesCollectionMonturque: AngularFirestoreCollection<MensajeInterface>;
+  mensajesMonturque: Observable<MensajeInterface[]>;
   mensajeDoc: AngularFirestoreDocument<MensajeInterface>;
 
   constructor(public afs: AngularFirestore) {
@@ -21,6 +27,34 @@ export class MensajesService {
         return { id, ...data };
       }))
     )
+
+    this.mensajesCollectionMoriles = afs.collection<MensajeInterface>('mensajes', ref => ref.where('lugar', '==', 'Moriles'));
+    this.mensajesMoriles = this.mensajesCollectionMoriles.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as MensajeInterface;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    )
+
+    this.mensajesCollectionLucena = afs.collection<MensajeInterface>('mensajes', ref => ref.where('lugar', '==', 'Lucena'));
+    this.mensajesLucena = this.mensajesCollectionLucena.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as MensajeInterface;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    )
+
+    this.mensajesCollectionMonturque = afs.collection<MensajeInterface>('mensajes', ref => ref.where('lugar', '==', 'Monturque'));
+    this.mensajesMonturque = this.mensajesCollectionMonturque.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as MensajeInterface;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    )
+
   }
 
   addMensaje(mensaje: MensajeInterface) {
@@ -29,7 +63,23 @@ export class MensajesService {
   }
 
   getMensajes() {
+    console.log('getmensajes');
     return this.mensajes;
+  }
+
+  getMensajesMoriles(){
+    console.log('getmensajesmoriles');
+    return this.mensajesMoriles;
+  }
+
+  getMensajesLucena(){
+    console.log('getmensajeslucena');
+    return this.mensajesLucena;
+  }
+
+  getMensajesMonturque(){
+    console.log('getmensajeslucena');
+    return this.mensajesMonturque;
   }
 
 }
