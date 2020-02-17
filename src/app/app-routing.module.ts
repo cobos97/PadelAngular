@@ -1,3 +1,4 @@
+import { SociosComponent } from './componentes/socios/socios.component';
 import { MensajesComponent } from './componentes/mensajes/mensajes.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: "registro", component: RegistroComponent},
   {path: "mensajes", component: MensajesComponent},
   {path: "login", component: LoginComponent},
+  {path: "socios", component: SociosComponent},
   {path: "**", component: PrincipalComponent}//TODO: Crear y cambiar por pagina 404
 ];
 

@@ -13,10 +13,18 @@ export class NavbarComponent implements OnInit {
   public isLogged: boolean = false;
   public emailUser: string = "";
 
+  admin: boolean = false;
+
   constructor(private authService: AuthServiceService, private afsAuth: AngularFireAuth, private router: Router) { }
 
   ngOnInit() {
     this.getCurrentUser();
+
+    this.authService.isAuth().subscribe(auth => {
+      if (auth.email == 'cobosmdc@gmail.com') {
+        this.admin = true;
+      }
+    });
   }
 
   getCurrentUser() {

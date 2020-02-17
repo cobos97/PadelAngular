@@ -1,0 +1,32 @@
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Lugar</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <th scope="row">id</th>
+                <td>nombre</td>
+                <td>apellidos</td>
+                <td>correo</td>
+                <td>lugar</td>
+                <td>
+                    <button type="button" class="btn btn-success editar" data-toggle="modal"
+                            data-target="#editarModal" value="<?php echo $u->id; ?>">Editar
+                    </button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger borrar" data-toggle="modal"
+                            data-target="#borrarModal" value="<?php echo $u->id; ?>">Borrar
+                    </button>
+                </td>
+            </tr>
+    </tbody>
+</table>
