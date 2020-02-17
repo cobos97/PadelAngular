@@ -62,6 +62,12 @@ export class MensajesService {
     this.mensajesCollection.add(mensaje);
   }
 
+  delMensaje(id){
+    console.log("Borrando...");
+    this.mensajeDoc = this.afs.doc(`mensajes/`+id);
+    this.mensajeDoc.delete();
+  }
+
   getMensajes() {
     console.log('getmensajes');
     return this.mensajes;

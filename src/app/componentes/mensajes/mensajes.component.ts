@@ -17,6 +17,8 @@ export class MensajesComponent implements OnInit {
     lugar: ''
   }
 
+  admin: boolean = false;
+
   mensajes: MensajeInterface[];
   mensajesMoriles: MensajeInterface[];
   mensajesLucena: MensajeInterface[];
@@ -41,6 +43,11 @@ export class MensajesComponent implements OnInit {
       this.mensajesMonturque = mensajes;
       console.log(mensajes);
     });
+    this.authService.isAuth().subscribe(auth => {
+      if (auth.email == 'cobosmdc@gmail.com') {
+        this.admin = true;
+      }
+    });
   }
 
   onGuardarMensaje(myForm: NgForm) {
@@ -61,6 +68,11 @@ export class MensajesComponent implements OnInit {
       console.log("Algo va mal");
     }
 
+  }
+
+  borrarMensaje(id){
+    console.log("Borrando: " + id);
+    this.mensajeService.delMensaje(id);
   }
 
 }
