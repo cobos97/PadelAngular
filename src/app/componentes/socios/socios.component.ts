@@ -1,5 +1,10 @@
+import { MensajesService } from './../../servicios/mensajes.service';
+import { SociosService } from './../../servicios/socios.service';
 import { Component, OnInit } from '@angular/core';
+import { SocioInterface } from 'src/app/modelo/socio';
 import * as $ from 'jquery';
+import { MensajeInterface } from 'src/app/modelo/mensaje';
+
 
 @Component({
   selector: 'app-socios',
@@ -8,31 +13,21 @@ import * as $ from 'jquery';
 })
 export class SociosComponent implements OnInit {
 
-  constructor() { }
+  listaSocios: SocioInterface[];
+  mensajes: MensajeInterface[];
+
+  constructor(private sociosService: SociosService) { }
 
   ngOnInit() {
-    $.ajax({
-      url: "http://localhost/DWEC/ANGULAR/Padel/src/app/api/test.php",
-      method: 'GET',
-      dataType: 'json',
-      data: {}
-    }).done(function (result) {
-      console.log(result);
+
+    this
+      .sociosService
+      .getSocios()
+      .subscribe((data: SocioInterface) => {
+        this.listaSocios = data.listaSocios;
+        console.log(data.listaSocios);
     });
 
-    /*
-    $.get("api/test.php",
-      function (respuestaJson) {
-      }
-    ).done(function (respuestaJson) {
-      console.log(respuestaJson);
-    }
-    ).fail(function () {
-      alert("Falla");
-      console.log("Falla");
-    }
-    )
-    */
   }
 
 }

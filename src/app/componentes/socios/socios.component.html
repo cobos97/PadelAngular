@@ -11,12 +11,12 @@
     </tr>
     </thead>
     <tbody>
-            <tr>
-                <th scope="row">id</th>
-                <td>nombre</td>
-                <td>apellidos</td>
-                <td>correo</td>
-                <td>lugar</td>
+            <tr *ngFor="let socio of listaSocios">
+                <th scope="row">{{socio.id}}</th>
+                <td>{{socio.nombre}}</td>
+                <td>{{socio.apellidos}}</td>
+                <td>{{socio.correo}}</td>
+                <td>{{socio.lugar}}</td>
                 <td>
                     <button type="button" class="btn btn-success editar" data-toggle="modal"
                             data-target="#editarModal" value="<?php echo $u->id; ?>">Editar

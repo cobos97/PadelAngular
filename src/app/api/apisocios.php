@@ -36,6 +36,9 @@ class ApiSocios{
                 $cadaSocio=array(
                     "id" => $row['id'],
                     "nombre" => $row['nombre'],
+                    "apellidos" => $row['apellidos'],
+                    "correo" => $row['correo'],
+                    "lugar" => $row['lugar'],
                 );
                 
                 array_push($socios["listaSocios"], $cadaSocio);

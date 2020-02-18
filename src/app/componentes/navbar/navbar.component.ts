@@ -19,12 +19,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.getCurrentUser();
-
-    this.authService.isAuth().subscribe(auth => {
-      if (auth.email == 'cobosmdc@gmail.com') {
-        this.admin = true;
-      }
-    });
   }
 
   getCurrentUser() {
@@ -34,6 +28,11 @@ export class NavbarComponent implements OnInit {
         this.isLogged = true;
         console.log(auth.email);
         this.emailUser = auth.email;
+        
+        if (auth.email == 'cobosmdc@gmail.com') {
+          this.admin = true;
+        }
+
       } else {
         console.log('NOT user logged');
         this.isLogged = false;
@@ -43,6 +42,7 @@ export class NavbarComponent implements OnInit {
 
   onLogout() {
     this.afsAuth.auth.signOut();
+    this.admin = false;
     this.router.navigate(['/principal']);
   }
 
