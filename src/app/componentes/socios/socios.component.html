@@ -1,32 +1,72 @@
+<form class="form" (ngSubmit)="onGuardarSocio(formNew)" #formNew="ngForm">
+  <input [(ngModel)]="socio.nombre" #contenido="ngModel" type="text" class="form-control" id="nombre" name="nombre"
+    placeholder="Escribe el nombre del socio" required>
+  <input [(ngModel)]="socio.apellidos" #contenido="ngModel" type="text" class="form-control" id="apellidos"
+    name="apellidos" placeholder="Escribe los apellidos del socio" required>
+  <input [(ngModel)]="socio.correo" #contenido="ngModel" type="text" class="form-control" id="correo" name="correo"
+    placeholder="Escribe el correo del socio" required>
+  <input [(ngModel)]="socio.lugar" #contenido="ngModel" type="text" class="form-control" id="lugar" name="lugar"
+    placeholder="Escribe el lugar del socio" required>
+  <input type="submit" class="btn btn-primary" name="enviar" value="Insertar">
+</form>
+
 <table class="table table-striped">
-    <thead>
+  <thead>
     <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Apellidos</th>
-        <th scope="col">Correo</th>
-        <th scope="col">Lugar</th>
-        <th scope="col"></th>
-        <th scope="col"></th>
+      <th scope="col">Id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellidos</th>
+      <th scope="col">Correo</th>
+      <th scope="col">Lugar</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
-    </thead>
-    <tbody>
-            <tr *ngFor="let socio of listaSocios">
-                <th scope="row">{{socio.id}}</th>
-                <td>{{socio.nombre}}</td>
-                <td>{{socio.apellidos}}</td>
-                <td>{{socio.correo}}</td>
-                <td>{{socio.lugar}}</td>
-                <td>
-                    <button type="button" class="btn btn-success editar" data-toggle="modal"
-                            data-target="#editarModal" value="<?php echo $u->id; ?>">Editar
-                    </button>
-                </td>
-                <td>
-                    <button type="button" class="btn btn-danger borrar" data-toggle="modal"
-                            data-target="#borrarModal" value="<?php echo $u->id; ?>">Borrar
-                    </button>
-                </td>
-            </tr>
-    </tbody>
+  </thead>
+  <tbody>
+    <tr *ngFor="let socio of listaSocios">
+      <th scope="row">{{socio.id}}</th>
+      <td>{{socio.nombre}}</td>
+      <td>{{socio.apellidos}}</td>
+      <td>{{socio.correo}}</td>
+      <td>{{socio.lugar}}</td>
+      <td>
+        <button type="button" class="btn btn-success editar" data-toggle="modal" data-target="#editarModal"
+             (click)="onEditSocio(socio.id)">Editar
+        </button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-danger borrar" data-toggle="modal" data-target="#borrarModal"
+        (click)="onBorrarSocio(socio.id)">Borrar
+        </button>
+      </td>
+    </tr>
+  </tbody>
 </table>
+
+
+<div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLabel">Edite los campos</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="form" (ngSubmit)="editarSocio(formNew)" #formNew="ngForm">
+                        <input [(ngModel)]="socio.nombre" #contenido="ngModel" type="text" class="form-control" id="nombre" name="nombre"
+                          placeholder="Escribe el nombre del socio" required>
+                        <input [(ngModel)]="socio.apellidos" #contenido="ngModel" type="text" class="form-control" id="apellidos"
+                          name="apellidos" placeholder="Escribe los apellidos del socio" required>
+                        <input [(ngModel)]="socio.correo" #contenido="ngModel" type="text" class="form-control" id="correo" name="correo"
+                          placeholder="Escribe el correo del socio" required>
+                        <input [(ngModel)]="socio.lugar" #contenido="ngModel" type="text" class="form-control" id="lugar" name="lugar"
+                          placeholder="Escribe el lugar del socio" required>
+                        <input type="submit" class="btn btn-primary" name="enviar" value="Editar">
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>

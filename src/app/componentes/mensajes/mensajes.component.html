@@ -72,6 +72,8 @@
                 <!--<small>3 days ago</small>-->
               </div>
               <p class="mb-1">{{mensaje.contenido}}</p>
+              <button *ngIf="admin" class="btn btn-danger" type="button" name="borrar" 
+              (click)='borrarMensaje(mensaje.id)'>Borrar</button>
               <!--<small>Donec id elit non mi porta.</small>-->
             </div>
           </div>
@@ -92,6 +94,8 @@
                 <!--<small>3 days ago</small>-->
               </div>
               <p class="mb-1">{{mensaje.contenido}}</p>
+              <button *ngIf="admin" class="btn btn-danger" type="button" name="borrar" 
+              (click)='borrarMensaje(mensaje.id)'>Borrar</button>
               <!--<small>Donec id elit non mi porta.</small>-->
             </div>
           </div>

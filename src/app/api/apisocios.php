@@ -88,11 +88,11 @@ class ApiSocios{
     }
 
 //función para añadir un nuevo Socio
-    function anadir($cadaSocio){ 
+    function anadir($nombre, $apellidos, $correo, $lugar){ 
         // creación de instancia del objeto Socio
         $socio = new Socio();
         // creamos el la variable res de tipo objeto Socio para añadirlo a la BD mediante el método nuevoSocio
-        $res = $socio->nuevoSocio($cadaSocio);
+        $res = $socio->nuevoSocio($nombre, $apellidos, $correo, $lugar);
         //llamada a la función exito con el mensaje correspondiente
         $this->exito('Nuevo Socio dado de alta');
     }

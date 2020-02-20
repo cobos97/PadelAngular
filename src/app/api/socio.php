@@ -14,6 +14,18 @@ class Socio extends DB{
         $query->execute(['id' => $id]);
         return $query;
     }
+
+    function nuevoSocio($nombre, $apellidos, $correo, $lugar){
+        /*
+        $query = $this->connect()->prepare('INSERT INTO socio (nombre, apellidos, correo, lugar) VALUES (:nombre, :apellidos, :correo, :lugar');
+        $query->execute(['nombre' => $nombre, 'apellidos' => $apellidos, 'correo' => $correo, 'lugar' => $lugar]);
+        */
+
+        $query = $this->connect()->prepare('INSERT INTO socio (nombre, apellidos, correo, lugar) VALUES ("pepe", "gomez", "correo", "lugar"');
+        $query->execute();
+
+        return true;
+    }
     
 }
 
