@@ -1,0 +1,13 @@
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #23346d;
+  color: white;
+  text-align: center;
+}
+
+.enlace{
+    color: #ff4d71 !important;
+}

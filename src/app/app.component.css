@@ -1,0 +1,27 @@
+
+
+/*CARDS*/
+.card {
+  margin-top: 10px;
+}
+
+.card-header {
+  background-color: #73c6cf !important;
+}
+
+
+/*ENLACES*/
+.enlace {
+  color: #ff4d71 !important;
+}
+
+/*404*/
+.error404 {
+  font-size: 60px;
+  color: #23346d;
+}
+
+.error404 .volver {
+  background-color: #ff4d71;
+  color: white;
+}

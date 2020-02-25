@@ -23,6 +23,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { MensajesComponent } from './componentes/mensajes/mensajes.component';
 import { SociosComponent } from './componentes/socios/socios.component';
+import { FootterComponent } from './componentes/footter/footter.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { SociosComponent } from './componentes/socios/socios.component';
     RegistroComponent,
     LoginComponent,
     MensajesComponent,
-    SociosComponent
+    SociosComponent,
+    FootterComponent
   ],
   imports: [
     FormsModule,
